@@ -45,7 +45,8 @@ namespace ADSPortEx2
 
         public int CompareTo(object obj)
         {
-            throw new NotImplementedException();
+            VideoGame other = (VideoGame) obj;
+            return Title.CompareTo(other.Title);
         }
 
     }// End of class
