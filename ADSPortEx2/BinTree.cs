@@ -29,9 +29,19 @@ namespace ADSPortEx2
         //Functions for EX.2A
         public void InOrder(ref string buffer)
         {
-            throw new NotImplementedException();
+            inOrder(root, ref buffer);
         }
 
+        private void inOrder(Node<T> tree, ref string buffer)
+        { 
+            if (tree!=null)
+            {
+                inOrder(tree.Left, ref buffer);
+                buffer += tree.Data.ToString() + ",";
+                inOrder(tree.Right, ref buffer);
+            }
+
+        }
         public void PreOrder(ref string buffer)
         {
             throw new NotImplementedException();
