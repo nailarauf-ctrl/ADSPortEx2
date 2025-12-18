@@ -20,7 +20,9 @@ namespace ADSPortEx2
 
         public VideoGame(string title, string developer, int releaseyear)
         {
-            throw new NotImplementedException();
+            Title = title;
+            Developer = developer;
+            Releaseyear = releaseyear;
         }
 
         public string Title
