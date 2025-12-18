@@ -17,18 +17,37 @@ namespace ADSPortEx2
 
         public BSTree()
         {
-            throw new NotImplementedException();
+            root = null;
         }
 
         //Functions for EX.2A
         public void InsertItem(T item)
         {
-            throw new NotImplementedException();
+            insertItem(item, ref root);
         }
 
+        private void insertItem(T item, ref Node<T> tree)
+        {
+            if (root == null)
+            {
+                tree = new Node<T>(item);
+            }
+            else if (item.CompareTo(tree.Data)>0)
+                insertItem(item, ref tree.Left);
+            else if (item.CompareTo(tree.Data) > 0)
+                insertItem(item, ref tree.Right);
+        }
         public int Height()
         {
-            throw new NotImplementedException();
+            height(root);
+        }
+
+        private int height(Node<T> tree)
+        {
+            if (tree == null)
+                return 0;
+            else
+                return 1 + Math.Max(height(tree.Left), height(tree.Right));
         }
 
         public T EarlieseGame()
