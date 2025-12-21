@@ -39,7 +39,11 @@ namespace ADSPortEx2
         }
         public int Height()
         {
-            height(root);
+            return height(root);
+        }
+        private int max(int a, int b) // defining max
+        {
+            return (a > b) ? a : b;
         }
 
         private int height(Node<T> tree)
@@ -47,7 +51,7 @@ namespace ADSPortEx2
             if (tree == null)
                 return 0;
             else
-                return 1 + Math.Max(height(tree.Left), height(tree.Right));
+                return 1 + max(height(tree.Left), height(tree.Right));
         }
 
         public T EarlieseGame()
