@@ -56,8 +56,31 @@ namespace ADSPortEx2
 
         public T EarlieseGame()
         {
-            throw new NotImplementedException();
+            if (root == null)
+                return default(T);
+
+            return earliest(root, root.Data);
         }
+
+        private T earliest(Node<T> tree, T earliestSoFar)
+        {
+            if (tree == null)
+                return earliestSoFar;
+
+            VideoGame current = tree.Data as VideoGame;
+            VideoGame earliestGame = earliestSoFar as VideoGame;
+
+            if (current.Releaseyear < earliestGame.Releaseyear)
+                earliestSoFar = tree.Data;
+
+            earliestSoFar = earliest(tree.Left, earliestSoFar);
+            earliestSoFar = earliest(tree.Right, earliestSoFar);
+
+            return earliestSoFar;
+        }
+
+
+
 
         //Functions for EX.2B
 
