@@ -55,7 +55,7 @@ namespace ADSPortEx2
         }
 
         public T EarlieseGame()
-        {
+        { 
             if (root == null)
                 return default(T);
 
