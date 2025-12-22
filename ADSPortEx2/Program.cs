@@ -10,6 +10,12 @@ namespace ADSPortEx2
     {
         static void Main(string[] args)
         {
+            BSTree<VideoGame> tree = new BSTree<VideoGame>();
+            bool running = true;
+            while (running)
+            {
+            }
+
 
 
             //Create a Menu driven interface here so a user can interact with your implementations
