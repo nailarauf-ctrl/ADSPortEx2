@@ -48,6 +48,18 @@ namespace ADSPortEx2
                         Console.WriteLine(tree.EarlieseGame());
                         break;
 
+                    case "4":
+                        Console.WriteLine("Current tree height: " + tree.Height());
+                        break;
+
+                    case "5":
+                        running = false;
+                        break;
+
+                    default:
+                        Console.WriteLine("Invalid option.");
+                        break;
+
                 }
 
             }
