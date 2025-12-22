@@ -21,6 +21,11 @@ namespace ADSPortEx2
                 Console.WriteLine("5. Exit");
             }
 
+            string choice = Console.ReadLine();
+
+
+
+
 
 
             //Create a Menu driven interface here so a user can interact with your implementations
