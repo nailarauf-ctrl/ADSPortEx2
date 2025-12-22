@@ -22,6 +22,9 @@ namespace ADSPortEx2
             }
 
             string choice = Console.ReadLine();
+            switch (choice)
+            {
+            }
 
 
 
