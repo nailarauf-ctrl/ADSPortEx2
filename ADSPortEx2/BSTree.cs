@@ -32,7 +32,7 @@ namespace ADSPortEx2
             {
                 tree = new Node<T>(item);
             }
-            else if (item.CompareTo(tree.Data)>0)
+            else if (item.CompareTo(tree.Data) < 0)
                 insertItem(item, ref tree.Left);
             else if (item.CompareTo(tree.Data) > 0)
                 insertItem(item, ref tree.Right);

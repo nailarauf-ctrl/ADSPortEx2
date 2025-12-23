@@ -36,16 +36,40 @@ namespace ADSPortEx2
                         int year = int.Parse(Console.ReadLine());
 
                         tree.InsertItem(new VideoGame(title, developer, year));
+                        Console.WriteLine("Game added.");
                         break;
 
                     case "2":
+                        Console.WriteLine("\nChoose traversal:");
+                        Console.WriteLine("1. InOrder");
+                        Console.WriteLine("2. PreOrder");
+                        Console.WriteLine("3. PostOrder");
+                        Console.Write("Choice: ");
+
+                        string traversal = Console.ReadLine();
                         string buffer = "";
-                        tree.InOrder(ref buffer);
+
+                        if (traversal == "1")
+                            tree.InOrder(ref buffer);
+                        else if (traversal == "2")
+                            tree.PreOrder(ref buffer);
+                        else if (traversal == "3")
+                            tree.PostOrder(ref buffer);
+                        else
+                        {
+                            Console.WriteLine("Invalid traversal choice.");
+                            break;
+                        }
+
                         Console.WriteLine(buffer);
                         break;
 
+
                     case "3":
-                        Console.WriteLine(tree.EarlieseGame());
+                        VideoGame earliest = tree.EarlieseGame();
+                        if (earliest != null)
+                            Console.WriteLine("Earliest released game:");
+                        Console.WriteLine(earliest);
                         break;
 
                     case "4":
@@ -63,24 +87,6 @@ namespace ADSPortEx2
                 }
 
             }
-
-           
-
-
-
-
-
-
-            //Create a Menu driven interface here so a user can interact with your implementations
-
-            //I.e. while(true){
-            // print to user - "Select an option"
-            // "1. Add item to tree"
-            // "2. Display all items... ect
-            //}
-
-
-
 
             Console.ReadLine();
 
