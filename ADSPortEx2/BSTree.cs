@@ -97,10 +97,32 @@ namespace ADSPortEx2
             return 1 + countNodes(tree.Left) + countNodes(tree.Right);
         }
 
-        public void Update(T item)
+        public bool UpdateGame(string title, string newDev, int newYear)
         {
-            throw new NotImplementedException();
+            return updateGame(root, title, newDev, newYear);
         }
+
+        private bool updateGame(Node<T> tree, string title, string newDev, int newYear)
+        {
+            if (tree == null)
+                return false;
+
+            VideoGame current = tree.Data as VideoGame;
+            int compare = title.CompareTo(current.Title);
+
+            if (compare < 0)
+                return updateGame(tree.Left, title, newDev, newYear);
+            else if (compare > 0)
+                return updateGame(tree.Right, title, newDev, newYear);
+            else
+            {
+                current.Developer = newDev;
+                current.Releaseyear = newYear;
+                return true;
+            }
+        }
+
+
 
         //Free space, use as necessary to address task requirements... 
 
