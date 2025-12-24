@@ -86,7 +86,15 @@ namespace ADSPortEx2
 
         public int Count()
         {
-            throw new NotImplementedException();
+            return countNodes(root);
+        }
+
+        private int countNodes(Node<T> tree)
+        {
+            if (tree == null)
+                return 0;
+
+            return 1 + countNodes(tree.Left) + countNodes(tree.Right);
         }
 
         public void Update(T item)
