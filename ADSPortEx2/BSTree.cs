@@ -28,7 +28,7 @@ namespace ADSPortEx2
 
         private void insertItem(T item, ref Node<T> tree)
         {
-            if (root == null)
+            if (tree == null)
             {
                 tree = new Node<T>(item);
             }
