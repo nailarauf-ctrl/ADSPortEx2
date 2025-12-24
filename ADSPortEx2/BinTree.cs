@@ -51,8 +51,8 @@ namespace ADSPortEx2
             if (tree != null)
             {
                 buffer += tree.Data.ToString() + ",";
-                inOrder(tree.Left, ref buffer);
-                inOrder(tree.Right, ref buffer);
+                preOrder(tree.Left, ref buffer);
+                preOrder(tree.Right, ref buffer);
             }
 
         }
@@ -66,8 +66,8 @@ namespace ADSPortEx2
         {
             if (tree != null)
             {
-                inOrder(tree.Left, ref buffer);
-                inOrder(tree.Right, ref buffer);
+                postOrder(tree.Left, ref buffer);
+                postOrder(tree.Right, ref buffer);
                 buffer += tree.Data.ToString() + ",";
             }
 
