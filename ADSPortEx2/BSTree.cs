@@ -122,6 +122,27 @@ namespace ADSPortEx2
             }
         }
 
+        public string ListByYear(int year)
+        {
+            string buffer = "";
+            listByYear(root, year, ref buffer);
+            return buffer;
+        }
+
+        private void listByYear(Node<T> tree, int year, ref string buffer)
+        {
+            if (tree != null)
+            {
+                listByYear(tree.Left, year, ref buffer);
+
+                VideoGame current = tree.Data as VideoGame;
+                if (current.Releaseyear == year)
+                    buffer += current.ToString() + ",";
+
+                listByYear(tree.Right, year, ref buffer);
+            }
+        }
+
 
 
         //Free space, use as necessary to address task requirements... 
