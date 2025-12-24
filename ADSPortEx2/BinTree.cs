@@ -59,7 +59,7 @@ namespace ADSPortEx2
 
         public void PostOrder(ref string buffer)
         {
-            postOrder(root, ref buffer);
+            postOrder(root, ref buffer); 
         }
 
         private void postOrder(Node<T> tree, ref string buffer)
