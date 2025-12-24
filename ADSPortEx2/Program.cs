@@ -67,9 +67,17 @@ namespace ADSPortEx2
 
                     case "3":
                         VideoGame earliest = tree.EarlieseGame();
-                        if (earliest != null)
+
+                        if (earliest == null)
+                        {
+                            Console.WriteLine("Tree is empty.");
+                        }
+                        else
+                        {
                             Console.WriteLine("Earliest released game:");
-                        Console.WriteLine(earliest);
+                            Console.WriteLine(earliest);
+                        }
+
                         break;
 
                     case "4":
