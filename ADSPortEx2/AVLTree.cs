@@ -34,10 +34,47 @@ namespace ADSPortEx2
             else if (item.CompareTo(tree.Data) > 0)
                 tree.Right = InsertAVL(tree.Right, item);
             else
-                return tree; // duplicate title ignored
+                return tree;
 
             return Balance(tree);
         }
+
+        private int GetBalance(Node<T> node)
+        {
+            if (node == null) return 0;
+            return Height(node.Left) - Height(node.Right);
+        }
+
+        private int Height(Node<T> tree)
+        {
+            if (tree == null) return 0;
+            return 1 + Math.Max(Height(tree.Left), Height(tree.Right));
+        }
+
+        private Node<T> Balance(Node<T> node)
+        {
+            int balance = GetBalance(node);
+
+            
+            if (balance > 1)
+            {
+                if (GetBalance(node.Left) < 0)
+                    node.Left = RotateLeft(node.Left); 
+                return RotateRight(node); 
+            }
+
+    
+            if (balance < -1)
+            {
+                if (GetBalance(node.Right) > 0)
+                    node.Right = RotateRight(node.Right); 
+                return RotateLeft(node); 
+            }
+
+            return node;
+        }
+
+
 
         public new void RemoveItem(T item)
         {
