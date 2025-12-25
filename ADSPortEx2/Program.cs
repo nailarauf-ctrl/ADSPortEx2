@@ -18,7 +18,10 @@ namespace ADSPortEx2
                 Console.WriteLine("2. Display Tree");
                 Console.WriteLine("3. Show Earliest Release Year");
                 Console.WriteLine("4. Show Tree Height");
-                Console.WriteLine("5. Exit");
+                Console.WriteLine("5. Show Count of Games");
+                Console.WriteLine("6. Update Existing Game");
+                Console.WriteLine("7. List Games by Release Year");
+                Console.WriteLine("8. Exit");
                 Console.Write("Select an option: ");
 
                 string choice = Console.ReadLine();
@@ -83,14 +86,45 @@ namespace ADSPortEx2
                     case "4":
                         Console.WriteLine("Current tree height: " + tree.Height());
                         break;
-
                     case "5":
+                        Console.WriteLine("Total games in tree: " + tree.Count());
+                        break;
+
+                    case "6":
+                        Console.Write("Enter game title to update: ");
+                        string titleToUpdate = Console.ReadLine();
+
+                        Console.Write("New Developer: ");
+                        string newDev = Console.ReadLine();
+
+                        Console.Write("New Release Year: ");
+                        int newYear = int.Parse(Console.ReadLine());
+
+                        if (tree.UpdateGame(titleToUpdate, newDev, newYear))
+                            Console.WriteLine("Game updated successfully.");
+                        else
+                            Console.WriteLine("Game NOT found.");
+                        break;
+
+                    case "7":
+                        Console.Write("Enter release year to search: ");
+                        int y = int.Parse(Console.ReadLine());
+
+                        string results = tree.ListByYear(y);
+                        if (results == "")
+                            Console.WriteLine("No games found for this year.");
+                        else
+                            Console.WriteLine(results);
+                        break;
+
+                    case "8":
                         running = false;
                         break;
 
                     default:
                         Console.WriteLine("Invalid option.");
                         break;
+
 
                 }
 
