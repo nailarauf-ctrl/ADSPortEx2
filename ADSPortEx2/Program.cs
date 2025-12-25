@@ -31,7 +31,7 @@ namespace ADSPortEx2
                 switch (choice)
                 {
                     case "1":
-                        Console.Write("Enter Title: ");
+                        Console.Write("Enter Title: "); 
                         string title = Console.ReadLine();
 
                         Console.Write("Enter Developer: ");
