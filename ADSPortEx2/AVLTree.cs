@@ -75,6 +75,28 @@ namespace ADSPortEx2
         }
 
 
+        private Node<T> RotateRight(Node<T> y)
+        {
+            Node<T> x = y.Left;
+            Node<T> T2 = x.Right;
+
+            x.Right = y;
+            y.Left = T2;
+
+            return x;
+        }
+
+        private Node<T> RotateLeft(Node<T> x)
+        {
+            Node<T> y = x.Right;
+            Node<T> T2 = y.Left;
+
+            y.Left = x;
+            x.Right = T2;
+
+            return y;
+        }
+
 
         public new void RemoveItem(T item)
         {
