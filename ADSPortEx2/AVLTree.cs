@@ -21,7 +21,22 @@ namespace ADSPortEx2
         //Functions for EX.2C
         public new void InsertItem(T item)
         {
-            throw new NotImplementedException();
+            root = InsertAVL(root, item);
+        }
+
+        private Node<T> InsertAVL(Node<T> tree, T item)
+        {
+            if (tree == null)
+                return new Node<T>(item);
+
+            if (item.CompareTo(tree.Data) < 0)
+                tree.Left = InsertAVL(tree.Left, item);
+            else if (item.CompareTo(tree.Data) > 0)
+                tree.Right = InsertAVL(tree.Right, item);
+            else
+                return tree; // duplicate title ignored
+
+            return Balance(tree);
         }
 
         public new void RemoveItem(T item)
