@@ -10,7 +10,7 @@ namespace ADSPortEx2
     {
         static void Main(string[] args)
         {
-            BSTree<VideoGame> tree = new BSTree<VideoGame>();
+            AVLTree<VideoGame> tree = new AVLTree<VideoGame>();
             bool running = true;
             while (running)
             {
