@@ -134,7 +134,7 @@ namespace ADSPortEx2
 
                     default:
                         Console.WriteLine("Invalid option.");
-                        break;
+                        break; 
 
 
                 }
