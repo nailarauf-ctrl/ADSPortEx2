@@ -23,7 +23,8 @@ namespace ADSPortEx2
                 Console.WriteLine("5. Show Count of Games");
                 Console.WriteLine("6. Update Existing Game");
                 Console.WriteLine("7. List Games by Release Year");
-                Console.WriteLine("8. Exit");
+                Console.WriteLine("8. Remove Game by Title");
+                Console.WriteLine("9. Exit");
                 Console.Write("Select an option: ");
 
                 string choice = Console.ReadLine();
@@ -120,6 +121,14 @@ namespace ADSPortEx2
                         break;
 
                     case "8":
+                        Console.Write("Enter title to remove: ");
+                        string removeTitle = Console.ReadLine();
+                        tree.RemoveItem(new VideoGame(removeTitle, "", 0));
+                        Console.WriteLine("Removed (if found).");
+                        break;
+
+
+                    case "9":
                         running = false;
                         break;
 
