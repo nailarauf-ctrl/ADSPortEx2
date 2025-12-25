@@ -14,6 +14,8 @@ namespace ADSPortEx2
             bool running = true;
             while (running)
             {
+                Console.WriteLine();
+
                 Console.WriteLine("1. Add Video Game");
                 Console.WriteLine("2. Display Tree");
                 Console.WriteLine("3. Show Earliest Release Year");
