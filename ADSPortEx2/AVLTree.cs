@@ -97,11 +97,38 @@ namespace ADSPortEx2
             return y;
         }
 
-
         public new void RemoveItem(T item)
         {
-            throw new NotImplementedException();
+            root = RemoveAVL(root, item);
         }
+
+        private Node<T> RemoveAVL(Node<T> tree, T item)
+        {
+            if (tree == null) return null;
+
+            if (item.CompareTo(tree.Data) < 0)
+                tree.Left = RemoveAVL(tree.Left, item);
+            else if (item.CompareTo(tree.Data) > 0)
+                tree.Right = RemoveAVL(tree.Right, item);
+            else
+            {
+                if (tree.Left == null) return tree.Right;
+                if (tree.Right == null) return tree.Left;
+
+                tree.Data = FindMin(tree.Right);
+                tree.Right = RemoveAVL(tree.Right, tree.Data);
+            }
+
+            return Balance(tree);
+        }
+
+        private T FindMin(Node<T> node)
+        {
+            while (node.Left != null)
+                node = node.Left;
+            return node.Data;
+        }
+
 
         //Free space, use as required
 
